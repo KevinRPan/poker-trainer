@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cloudflare
+.cloudflare/
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
