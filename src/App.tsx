@@ -140,6 +140,24 @@ export function App() {
     setShowTableInReview(false);
   };
 
+  /** Redo only the current decision; keep earlier streets intact. */
+  const handleRetryMove = () => {
+    const stepIndex = currentStep.stepIndex;
+    setSelectedChoice(null);
+    setStepRecords((prev) => prev.filter((r) => r.stepIndex !== stepIndex));
+    setIsHandComplete(false);
+    setShowTableInReview(false);
+  };
+
+  /** Jump back to a street from review and replay from that decision onward. */
+  const handleRetryFromStep = (stepIndex: number) => {
+    setStepIdx(stepIndex);
+    setSelectedChoice(null);
+    setStepRecords((prev) => prev.filter((r) => r.stepIndex < stepIndex));
+    setIsHandComplete(false);
+    setShowTableInReview(false);
+  };
+
   const handleNextPuzzle = () => {
     const nextIdx = (currentPuzzleIdx + 1) % puzzleQueue.length;
     setCurrentPuzzleIdx(nextIdx);
@@ -511,11 +529,12 @@ export function App() {
 
                       <div className="flex items-center gap-2 pt-1">
                         <button
-                          onClick={handleRetryHand}
+                          onClick={handleRetryMove}
                           className="px-3 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold flex items-center gap-1.5 transition"
+                          title="Try this decision again"
                         >
                           <RotateCcw className="w-3.5 h-3.5" />
-                          Retry
+                          Retry Move
                         </button>
                         <button
                           onClick={handleAdvanceStreetOrFinish}
@@ -803,11 +822,12 @@ export function App() {
 
                           <div className="flex items-center gap-2 pt-1">
                             <button
-                              onClick={handleRetryHand}
+                              onClick={handleRetryMove}
                               className="px-3 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold flex items-center gap-1.5 transition"
+                              title="Try this decision again"
                             >
                               <RotateCcw className="w-3.5 h-3.5" />
-                              Retry
+                              Retry Move
                             </button>
                             <button
                               onClick={handleAdvanceStreetOrFinish}
@@ -857,6 +877,7 @@ export function App() {
                     stepRecords={stepRecords}
                     onRetry={handleRetryHand}
                     onNextPuzzle={handleNextPuzzle}
+                    onRetryFromStep={handleRetryFromStep}
                     onSelectStepForReplay={(idx) => {
                       setStepIdx(idx);
                       setShowTableInReview(true);
@@ -891,6 +912,7 @@ export function App() {
                       stepRecords={stepRecords}
                       onRetry={handleRetryHand}
                       onNextPuzzle={handleNextPuzzle}
+                      onRetryFromStep={handleRetryFromStep}
                       onSelectStepForReplay={(idx) => {
                         setStepIdx(idx);
                         setShowTableInReview(true);

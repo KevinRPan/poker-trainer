@@ -22,6 +22,8 @@ export interface HandReviewPanelProps {
   stepRecords: StepAttemptRecord[];
   onRetry: () => void;
   onNextPuzzle: () => void;
+  /** Replay from this street onward (keeps earlier decisions). */
+  onRetryFromStep?: (stepIndex: number) => void;
   onSelectStepForReplay?: (stepIndex: number) => void;
 }
 
@@ -39,6 +41,7 @@ export const HandReviewPanel: React.FC<HandReviewPanelProps> = ({
   stepRecords,
   onRetry,
   onNextPuzzle,
+  onRetryFromStep,
   onSelectStepForReplay,
 }) => {
   const [expandedSteps, setExpandedSteps] = useState<Record<number, boolean>>(() => {
@@ -497,17 +500,29 @@ export const HandReviewPanel: React.FC<HandReviewPanelProps> = ({
                     })}
                   </div>
 
-                  {/* Replay Step Button */}
-                  {onSelectStepForReplay && (
-                    <div className="pt-1 flex justify-end">
-                      <button
-                        type="button"
-                        onClick={() => onSelectStepForReplay(step.stepIndex)}
-                        className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 p-1"
-                      >
-                        <RotateCcw className="w-3.5 h-3.5" />
-                        <span>Inspect / Replay Street {step.stepIndex + 1}</span>
-                      </button>
+                  {/* Per-street retry / inspect */}
+                  {(onRetryFromStep || onSelectStepForReplay) && (
+                    <div className="pt-1 flex items-center justify-end gap-3">
+                      {onSelectStepForReplay && (
+                        <button
+                          type="button"
+                          onClick={() => onSelectStepForReplay(step.stepIndex)}
+                          className="text-xs font-semibold text-slate-400 hover:text-slate-200 flex items-center gap-1 p-1"
+                        >
+                          <Eye className="w-3.5 h-3.5" />
+                          <span>Inspect Table</span>
+                        </button>
+                      )}
+                      {onRetryFromStep && (
+                        <button
+                          type="button"
+                          onClick={() => onRetryFromStep(step.stepIndex)}
+                          className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 p-1"
+                        >
+                          <RotateCcw className="w-3.5 h-3.5" />
+                          <span>Retry This Move</span>
+                        </button>
+                      )}
                     </div>
                   )}
                 </div>
