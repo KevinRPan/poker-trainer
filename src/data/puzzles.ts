@@ -6,8 +6,8 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
   // --------------------------------------------------------------------------
   {
     id: 'puzzle-01-triple-barrel-bluff-catch',
-    title: 'The A-High Blocker Bluff Catch',
-    subtitle: 'Defending a 3-bet pot against triple-barrel aggression on a dynamic runout',
+    title: '3-Bet Pot vs Button',
+    subtitle: '6-max cash · multi-street decisions',
     difficulty: 'Advanced',
     rating: 1850,
     format: 'cash-6max',
@@ -59,7 +59,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 89.5,
         villainStackBB: 89.5,
         villainPosition: 'BTN',
-        prompt: 'You flopped top pair top kicker in a 3-bet pot. The board is dry. First to act on the flop, what is your move?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -122,7 +122,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 82.5,
         villainStackBB: 82.5,
         villainPosition: 'BTN',
-        prompt: 'The turn brings the 4♣, introducing a backdoor flush draw. Action is on you first in the BB (OOP). What is your move?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -185,7 +185,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 82.5,
         villainStackBB: 82.5,
         villainPosition: 'BTN',
-        prompt: 'After you check, BTN fires 22.0bb into 35.5bb. Action is back on you — what is your move?',
+        prompt: "BTN bets 22.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'turn', actor: 'BB', action: 'Checks', potAfterBB: 35.5, isHero: true },
           { street: 'turn', actor: 'BTN', action: 'Bets 22.0bb', potAfterBB: 57.5 },
@@ -241,7 +241,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 60.5,
         villainStackBB: 60.5,
         villainPosition: 'BTN',
-        prompt: 'The river pairs the deuce (2♦). First to act on the river with 60.5bb behind in a 79.5bb pot, what is your move with A♥ T♠?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -294,7 +294,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 60.5,
         villainStackBB: 60.5,
         villainPosition: 'BTN',
-        prompt: 'After you check, BTN fires a massive 48.0bb bet into 79.5bb (leaving 12.5bb behind). Can your top pair withstand the triple barrel?',
+        prompt: "BTN bets 48.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'BB', action: 'Checks', potAfterBB: 79.5, isHero: true },
           { street: 'river', actor: 'BTN', action: 'Bets 48.0bb', potAfterBB: 127.5 },
@@ -343,8 +343,8 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
   // --------------------------------------------------------------------------
   {
     id: 'puzzle-02-river-blocker-bluff',
-    title: 'The Nut-Blocker River Check-Raise',
-    subtitle: 'Turning missed broadway straight draws into an unstoppable river shove',
+    title: 'BB Defense vs CO',
+    subtitle: '6-max cash · multi-street decisions',
     difficulty: 'Master',
     rating: 2200,
     format: 'cash-6max',
@@ -396,7 +396,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 97.5,
         villainStackBB: 97.5,
         villainPosition: 'CO',
-        prompt: 'You defend your BB and flop an open-ended straight draw with two overcards (K♠ Q♦) on J♠ T♥ 3♣. First to act on the flop, what is your move?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -458,7 +458,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 97.5,
         villainStackBB: 97.5,
         villainPosition: 'CO',
-        prompt: 'After you check, CO continuation-bets 2.0bb into 5.5bb. With an open-ended straight draw and two overcards, what is your move?',
+        prompt: "CO bets 2.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'flop', actor: 'BB', action: 'Checks', potAfterBB: 5.5, isHero: true },
           { street: 'flop', actor: 'CO', action: 'Bets 2.0bb', potAfterBB: 7.5 },
@@ -513,7 +513,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 90.0,
         villainStackBB: 90.0,
         villainPosition: 'CO',
-        prompt: 'The turn is a blank 2♥. You retain the initiative after your flop check-raise. How do you proceed?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -566,7 +566,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 75.0,
         villainStackBB: 75.0,
         villainPosition: 'CO',
-        prompt: 'River 6♦ is a complete brick. Your straight draw missed, leaving you with King-high. First to act in the BB with 75.0bb behind in a 50.5bb pot, what is your move?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -619,7 +619,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 75.0,
         villainStackBB: 75.0,
         villainPosition: 'CO',
-        prompt: 'After you check, CO value-bets 32.0bb into 50.5bb. You have zero showdown value with K♠ Q♦, but hold prime nut blockers. What is your move?',
+        prompt: "CO bets 32.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'BB', action: 'Checks', potAfterBB: 50.5, isHero: true },
           { street: 'river', actor: 'CO', action: 'Bets 32.0bb', potAfterBB: 82.5 },
@@ -668,8 +668,8 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
   // --------------------------------------------------------------------------
   {
     id: 'puzzle-03-delayed-cbet-pocket-aces',
-    title: 'Trapping with Aces on Connected Texture',
-    subtitle: 'Navigating wet boards in position and picking off probe bets',
+    title: 'BTN vs MP Probe',
+    subtitle: '6-max cash · multi-street decisions',
     difficulty: 'Intermediate',
     rating: 1550,
     format: 'cash-6max',
@@ -723,7 +723,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 92.5,
         villainStackBB: 92.5,
         villainPosition: 'MP',
-        prompt: 'The flop is 9♣ 8♠ 7♦, extremely connected and heavily favoring MP’s calling range (99, 88, 77, T9s, JTs). MP checks to you on the button. What is your action with AA?',
+        prompt: "MP checks to you. What's your move?",
         priorActionsThisStreet: [
           { street: 'flop', actor: 'MP', action: 'Checks', potAfterBB: 16.5 },
         ],
@@ -788,7 +788,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 92.5,
         villainStackBB: 92.5,
         villainPosition: 'MP',
-        prompt: 'The turn 2♣ changes nothing. MP senses weakness from your flop check and leads for 11.0bb (66% pot). What is your move?',
+        prompt: "MP bets 11.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'turn', actor: 'MP', action: 'Bets 11.0bb', potAfterBB: 27.5 },
         ],
@@ -843,7 +843,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 81.5,
         villainStackBB: 81.5,
         villainPosition: 'MP',
-        prompt: 'River is 3♠. MP checks to you after getting called on the turn. MP’s range is capped after probing turn and checking river. How do you finish the hand?',
+        prompt: "MP checks to you. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'MP', action: 'Checks', potAfterBB: 38.5 },
         ],
@@ -891,8 +891,8 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
   // --------------------------------------------------------------------------
   {
     id: 'puzzle-04-deep-stack-4bet-defense',
-    title: '200bb Deep 4-Bet Overbet Defense',
-    subtitle: 'Deciphering polar 2x pot river shoves in deep-stack 9-max warfare',
+    title: 'Deep 4-Bet Pot',
+    subtitle: '9-max cash · deep stack',
     difficulty: 'Master',
     rating: 2150,
     format: 'cash-9max',
@@ -952,7 +952,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 162.0,
         villainStackBB: 162.0,
         villainPosition: 'MP',
-        prompt: 'After c-betting the King-high flop in a 4-bet pot, MP checks to you on the turn 8♦. The pot is 80.0bb. What is your move with Q♠ Q♥?',
+        prompt: "MP checks to you. What's your move?",
         priorActionsThisStreet: [
           { street: 'turn', actor: 'MP', action: 'Checks', potAfterBB: 80.0 },
         ],
@@ -1007,7 +1007,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 162.0,
         villainStackBB: 162.0,
         villainPosition: 'MP',
-        prompt: 'River 4♠ is a complete brick. Suddenly, MP loads up an overbet bomb of 105.0bb into 80.0bb (leaving 57.0bb behind)! What is your move with Q♠ Q♥?',
+        prompt: "MP bets 105.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'MP', action: 'Bets 105.0bb', potAfterBB: 185.0 },
         ],
@@ -1055,8 +1055,8 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
   // --------------------------------------------------------------------------
   {
     id: 'puzzle-05-utg-multiway-set-runout',
-    title: 'Navigating Top Set in a Multi-Way Minefield',
-    subtitle: 'Balancing trap sizing, wet turns, and extracting river stacks',
+    title: 'Multi-Way Flop Spot',
+    subtitle: '9-max cash · multi-way pot',
     difficulty: 'Intermediate',
     rating: 1600,
     format: 'cash-9max',
@@ -1111,7 +1111,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 97.5,
         villainStackBB: 97.5,
         villainPosition: 'MP',
-        prompt: 'You flopped top set of Jacks in a 4-way pot. The flop is dry. First to act, what is your move?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1174,7 +1174,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 94.0,
         villainStackBB: 94.0,
         villainPosition: 'MP',
-        prompt: 'The turn is the 9♠, bringing straight (T8) and spade flush draws. You hold top set (J♠ J♥) out of position in a 17.5bb pot. What is your move?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1237,7 +1237,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 94.0,
         villainStackBB: 94.0,
         villainPosition: 'MP',
-        prompt: 'After you bet 13.0bb, MP aggressively raises to 32.0bb! What is your move with top set?',
+        prompt: "MP raises to 32.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'turn', actor: 'UTG', action: 'Bets 13.0bb', potAfterBB: 30.5, isHero: true },
           { street: 'turn', actor: 'MP', action: 'Raises to 32.0bb', potAfterBB: 62.5 },
@@ -1293,7 +1293,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 62.0,
         villainStackBB: 62.0,
         villainPosition: 'MP',
-        prompt: 'River 2♦ is a total blank. All draws missed. You are first to act with 62.0bb remaining in an 81.5bb pot. What is your move?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1339,8 +1339,8 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
   // --------------------------------------------------------------------------
   {
     id: 'puzzle-06-mtt-final-table-icm-jam',
-    title: 'The Final Table ICM River Jam',
-    subtitle: 'Weaponizing short-stack ladder pressure in blind-vs-blind warfare',
+    title: 'Final Table Blind Battle',
+    subtitle: 'MTT final table · ICM pressure',
     difficulty: 'Advanced',
     rating: 1950,
     format: 'mtt',
@@ -1394,7 +1394,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 52.5,
         villainStackBB: 23.5,
         villainPosition: 'BB',
-        prompt: 'Blinds are 25k/50k. Seat 1 has only 5bb. BB has 23.5bb and faces massive ICM elimination risk. Board is A♣ 8♦ 3♠. What is your SB c-bet strategy with K♦ 4♠?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1446,7 +1446,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 50.9,
         villainStackBB: 21.9,
         villainPosition: 'BB',
-        prompt: 'Turn 7♣ brings gutshot straight and backdoor flush possibilities. BB has 21.9bb left with 5bb short stack waiting to bust. What is your move?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1499,7 +1499,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 45.4,
         villainStackBB: 16.4,
         villainPosition: 'BB',
-        prompt: 'River is 2♦. Your gutshot missed, leaving you with King-high. BB has 16.4bb remaining. A 5bb stack is still alive. What is your final street action?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1545,8 +1545,8 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
   // --------------------------------------------------------------------------
   {
     id: 'puzzle-07-mtt-cbet-barrel-runout',
-    title: 'MTT 3-Bet Pot Triple Barrel Navigation',
-    subtitle: 'Balancing barrel frequency and river showdown checks 35bb deep',
+    title: 'MTT 3-Bet Pot',
+    subtitle: 'MTT · mid-stack decisions',
     difficulty: 'Advanced',
     rating: 1800,
     format: 'mtt',
@@ -1603,7 +1603,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 29.5,
         villainStackBB: 29.5,
         villainPosition: 'MP',
-        prompt: 'Flop is Q♦ 8♣ 4♠. MP checks to you. You hold top pair second kicker (K♠ Q♠). Effective stacks: 29.5bb. What is your move?',
+        prompt: "MP checks to you. What's your move?",
         priorActionsThisStreet: [
           { street: 'flop', actor: 'MP', action: 'Checks', potAfterBB: 12.5 },
         ],
@@ -1657,7 +1657,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 25.7,
         villainStackBB: 25.7,
         villainPosition: 'MP',
-        prompt: 'Turn T♥ adds straight draws (J9, 97, Jx). MP checks again. How do you handle your top pair on this dynamic turn?',
+        prompt: "MP checks to you. What's your move?",
         priorActionsThisStreet: [
           { street: 'turn', actor: 'MP', action: 'Checks', potAfterBB: 20.1 },
         ],
@@ -1712,7 +1712,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 18.2,
         villainStackBB: 18.2,
         villainPosition: 'MP',
-        prompt: 'River 2♣ is a blank. MP checks a third time. You have 18.2bb in a 35.1bb pot with top pair second kicker. What is your decision?',
+        prompt: "MP checks to you. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'MP', action: 'Checks', potAfterBB: 35.1 },
         ],
@@ -1760,8 +1760,8 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
   // --------------------------------------------------------------------------
   {
     id: 'puzzle-08-heads-up-river-trap',
-    title: 'The Heads-Up River Deception',
-    subtitle: 'Setting the perfect river trap with a flopped set against a hyper-aggressive rival',
+    title: 'Heads-Up Flop Spot',
+    subtitle: 'Heads-up cash · multi-street',
     difficulty: 'Master',
     rating: 2250,
     format: 'heads-up',
@@ -1807,7 +1807,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 97.5,
         villainStackBB: 97.5,
         villainPosition: 'BTN',
-        prompt: 'You flopped bottom set (6♥ 6♦) on 9♦ 6♠ 2♣ in a heads-up duel. Action is on you first in the BB. What is your move?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1869,7 +1869,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 97.5,
         villainStackBB: 97.5,
         villainPosition: 'BTN',
-        prompt: 'After you check, BTN fires 3.5bb (70% pot). How do you proceed with your set of sixes?',
+        prompt: "BTN bets 3.5bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'flop', actor: 'BB', action: 'Checks', potAfterBB: 5.0, isHero: true },
           { street: 'flop', actor: 'BTN', action: 'Bets 3.5bb', potAfterBB: 8.5 },
@@ -1924,7 +1924,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 86.0,
         villainStackBB: 86.0,
         villainPosition: 'BTN',
-        prompt: 'Turn K♠ hits BTN’s float range (Kx, gutshots, backdoors). You hold 6♥ 6♦. How do you size your turn barrel?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1977,7 +1977,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 66.5,
         villainStackBB: 66.5,
         villainPosition: 'BTN',
-        prompt: 'River A♦ is an overcard. You hold a set of sixes (6♥ 6♦) with 66.5bb behind in a 67.0bb pot. First to act heads-up, what is your move?',
+        prompt: "First to act. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -2030,7 +2030,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 66.5,
         villainStackBB: 66.5,
         villainPosition: 'BTN',
-        prompt: 'After you check, BTN fires a heavy bet of 45.0bb into 67.0bb (leaving 21.5bb behind). What is your move with your set of sixes?',
+        prompt: "BTN bets 45.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'BB', action: 'Checks', potAfterBB: 67.0, isHero: true },
           { street: 'river', actor: 'BTN', action: 'Bets 45.0bb', potAfterBB: 112.0 },

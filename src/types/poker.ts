@@ -71,7 +71,7 @@ export interface DecisionStep {
   heroStackBB: number;
   villainStackBB: number;
   villainPosition: PositionName;
-  prompt: string;         // e.g. "CO bets 4.5bb into 13.5bb on the turn. What is your move?"
+  prompt: string;         // Action cue only — do not narrate board/hand strength (visible on table)
   priorActionsThisStreet: ActionLogItem[];
   choices: ActionChoice[];
   transitionText?: string; // What happens after Hero acts to advance to the next street

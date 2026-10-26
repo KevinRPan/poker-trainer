@@ -283,10 +283,18 @@ export function App() {
                             ELO {currentPuzzle.rating} • {currentPuzzle.difficulty}
                           </span>
                         </div>
-                        <h1 className="text-sm font-bold text-white mt-1">
-                          {currentPuzzle.title}
-                        </h1>
-                        <p className="text-xs text-slate-400">{currentPuzzle.subtitle}</p>
+                        {isHandComplete ? (
+                          <>
+                            <h1 className="text-sm font-bold text-white mt-1">
+                              {currentPuzzle.title}
+                            </h1>
+                            <p className="text-xs text-slate-400">{currentPuzzle.subtitle}</p>
+                          </>
+                        ) : (
+                          <p className="text-sm font-semibold text-slate-200 mt-1">
+                            {currentPuzzle.blindsText} · {currentPuzzle.heroPosition}
+                          </p>
+                        )}
                       </div>
 
                       <button
@@ -572,10 +580,18 @@ export function App() {
                                 ELO {currentPuzzle.rating} • {currentPuzzle.difficulty}
                               </span>
                             </div>
-                            <h1 className="text-sm font-bold text-white mt-1">
-                              {currentPuzzle.title}
-                            </h1>
-                            <p className="text-xs text-slate-400">{currentPuzzle.subtitle}</p>
+                            {isHandComplete ? (
+                              <>
+                                <h1 className="text-sm font-bold text-white mt-1">
+                                  {currentPuzzle.title}
+                                </h1>
+                                <p className="text-xs text-slate-400">{currentPuzzle.subtitle}</p>
+                              </>
+                            ) : (
+                              <p className="text-sm font-semibold text-slate-200 mt-1">
+                                {currentPuzzle.blindsText} · {currentPuzzle.heroPosition}
+                              </p>
+                            )}
                           </div>
 
                           <button
