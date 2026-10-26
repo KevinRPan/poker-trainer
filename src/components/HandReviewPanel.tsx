@@ -87,7 +87,7 @@ export const HandReviewPanel: React.FC<HandReviewPanelProps> = ({
   const getStreetLabel = (street: string) => street.toUpperCase();
 
   return (
-    <div className="w-full max-w-md lg:max-w-none mx-auto flex flex-col text-slate-100 pb-24 lg:pb-6">
+    <div className="w-full max-w-md lg:max-w-none mx-auto flex flex-col text-slate-100 pb-36 lg:pb-8">
       {/* ======================================================== */}
       {/* 1. REPORT CARD HEADER: Chess.com Game Review Style       */}
       {/* ======================================================== */}
@@ -109,21 +109,31 @@ export const HandReviewPanel: React.FC<HandReviewPanelProps> = ({
           }`}
         />
 
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400">
+        <div className="flex items-center justify-between mb-4 gap-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 shrink-0">
               <Award className="w-5 h-5" />
             </span>
-            <div>
+            <div className="min-w-0">
               <h2 className="text-sm font-bold uppercase tracking-wider text-slate-300">
                 Hand Review Report
               </h2>
               <p className="text-xs text-slate-400 line-clamp-1">{puzzle.title}</p>
             </div>
           </div>
-          <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-slate-300">
-            {puzzle.format.toUpperCase()}
-          </span>
+          <div className="flex items-center gap-1.5 shrink-0">
+            <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-slate-300">
+              {puzzle.format.toUpperCase()}
+            </span>
+            <button
+              type="button"
+              onClick={onNextPuzzle}
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-[11px] font-black transition shadow-sm"
+            >
+              Next Hand
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
 
         {/* Big Accuracy Score & Overall Grade Banner */}
@@ -533,9 +543,9 @@ export const HandReviewPanel: React.FC<HandReviewPanelProps> = ({
       </section>
 
       {/* ======================================================== */}
-      {/* 4. BOTTOM STICKY ACTION BUTTONS: Retry & Next Puzzle     */}
+      {/* 4. BOTTOM ACTION BAR: above mobile nav, sticky on desktop */}
       {/* ======================================================== */}
-      <footer className="fixed lg:sticky bottom-0 left-0 right-0 z-30 p-3 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 max-w-md lg:max-w-none mx-auto shadow-2xl mt-4">
+      <footer className="fixed lg:sticky bottom-16 lg:bottom-0 left-0 right-0 z-30 p-3 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 max-w-md lg:max-w-none mx-auto shadow-2xl mt-4">
         <div className="flex items-center gap-3">
           <button
             type="button"
@@ -549,9 +559,9 @@ export const HandReviewPanel: React.FC<HandReviewPanelProps> = ({
           <button
             type="button"
             onClick={onNextPuzzle}
-            className="flex-1.5 py-3 px-5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-500 active:scale-98 text-slate-950 font-black text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/25"
+            className="flex-[1.6] py-3 px-5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-500 active:scale-98 text-slate-950 font-black text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/25"
           >
-            <span>Next Puzzle</span>
+            <span>Next Hand</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

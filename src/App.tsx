@@ -563,12 +563,21 @@ export function App() {
                       </div>
                     </div>
                   ) : (
-                    <button
-                      onClick={() => setShowTableInReview(false)}
-                      className="w-full py-3 rounded-xl bg-emerald-500 text-slate-950 font-extrabold text-sm"
-                    >
-                      Back to Full Hand Review
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => setShowTableInReview(false)}
+                        className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-sm transition"
+                      >
+                        Back to Review
+                      </button>
+                      <button
+                        onClick={handleNextPuzzle}
+                        className="flex-[1.4] py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm flex items-center justify-center gap-1.5 shadow-lg transition"
+                      >
+                        Next Hand
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
                   )}
                 </div>
 
@@ -856,12 +865,21 @@ export function App() {
                           </div>
                         </div>
                       ) : (
-                        <button
-                          onClick={() => setShowTableInReview(false)}
-                          className="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm shadow-lg transition"
-                        >
-                          Back to Full Hand Review
-                        </button>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => setShowTableInReview(false)}
+                            className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-sm transition"
+                          >
+                            Back to Review
+                          </button>
+                          <button
+                            onClick={handleNextPuzzle}
+                            className="flex-[1.4] py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm flex items-center justify-center gap-1.5 shadow-lg transition"
+                          >
+                            Next Hand
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        </div>
                       )}
                     </div>
                   </div>
