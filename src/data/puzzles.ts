@@ -1,6 +1,7 @@
 import type { PokerPuzzle } from '../types/poker';
+import { PREFLOP_PUZZLES } from './preflopPuzzles';
 
-export const POKER_PUZZLES: PokerPuzzle[] = [
+const POSTFLOP_PUZZLES: PokerPuzzle[] = [
   // --------------------------------------------------------------------------
   // PUZZLE 1: 6-Max Cash - River Bluff Catch (Brilliant Call)
   // --------------------------------------------------------------------------
@@ -59,7 +60,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 89.5,
         villainStackBB: 89.5,
         villainPosition: 'BTN',
-        prompt: "First to act. What's your move?",
+        prompt: "You 3-bet BB vs BTN open; BTN called. First to act on the flop. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -122,7 +123,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 82.5,
         villainStackBB: 82.5,
         villainPosition: 'BTN',
-        prompt: "First to act. What's your move?",
+        prompt: "BTN called your flop c-bet. First to act on the turn. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -185,7 +186,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 82.5,
         villainStackBB: 82.5,
         villainPosition: 'BTN',
-        prompt: "BTN bets 22.0bb. What's your move?",
+        prompt: "You checked turn; BTN bets 22.0bb into 35.5bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'turn', actor: 'BB', action: 'Checks', potAfterBB: 35.5, isHero: true },
           { street: 'turn', actor: 'BTN', action: 'Bets 22.0bb', potAfterBB: 57.5 },
@@ -241,7 +242,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 60.5,
         villainStackBB: 60.5,
         villainPosition: 'BTN',
-        prompt: "First to act. What's your move?",
+        prompt: "You called the turn barrel. First to act on the river. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -294,7 +295,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 60.5,
         villainStackBB: 60.5,
         villainPosition: 'BTN',
-        prompt: "BTN bets 48.0bb. What's your move?",
+        prompt: "You checked river; BTN bets 48.0bb into 79.5bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'BB', action: 'Checks', potAfterBB: 79.5, isHero: true },
           { street: 'river', actor: 'BTN', action: 'Bets 48.0bb', potAfterBB: 127.5 },
@@ -396,7 +397,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 97.5,
         villainStackBB: 97.5,
         villainPosition: 'CO',
-        prompt: "First to act. What's your move?",
+        prompt: "You defended BB vs CO open. First to act on the flop. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -458,7 +459,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 97.5,
         villainStackBB: 97.5,
         villainPosition: 'CO',
-        prompt: "CO bets 2.0bb. What's your move?",
+        prompt: "You checked flop; CO c-bets 2.0bb into 5.5bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'flop', actor: 'BB', action: 'Checks', potAfterBB: 5.5, isHero: true },
           { street: 'flop', actor: 'CO', action: 'Bets 2.0bb', potAfterBB: 7.5 },
@@ -513,7 +514,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 90.0,
         villainStackBB: 90.0,
         villainPosition: 'CO',
-        prompt: "First to act. What's your move?",
+        prompt: "CO called your flop check-raise. First to act on the turn. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -566,7 +567,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 75.0,
         villainStackBB: 75.0,
         villainPosition: 'CO',
-        prompt: "First to act. What's your move?",
+        prompt: "CO called your turn bet. First to act on the river. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -619,7 +620,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 75.0,
         villainStackBB: 75.0,
         villainPosition: 'CO',
-        prompt: "CO bets 32.0bb. What's your move?",
+        prompt: "You checked river; CO bets 32.0bb into 50.5bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'BB', action: 'Checks', potAfterBB: 50.5, isHero: true },
           { street: 'river', actor: 'CO', action: 'Bets 32.0bb', potAfterBB: 82.5 },
@@ -723,7 +724,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 92.5,
         villainStackBB: 92.5,
         villainPosition: 'MP',
-        prompt: "MP checks to you. What's your move?",
+        prompt: "You 3-bet BTN vs MP open; MP called. MP checks to you on the flop. What's your move?",
         priorActionsThisStreet: [
           { street: 'flop', actor: 'MP', action: 'Checks', potAfterBB: 16.5 },
         ],
@@ -788,7 +789,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 92.5,
         villainStackBB: 92.5,
         villainPosition: 'MP',
-        prompt: "MP bets 11.0bb. What's your move?",
+        prompt: "You checked flop; MP leads 11.0bb into 16.5bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'turn', actor: 'MP', action: 'Bets 11.0bb', potAfterBB: 27.5 },
         ],
@@ -843,7 +844,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 81.5,
         villainStackBB: 81.5,
         villainPosition: 'MP',
-        prompt: "MP checks to you. What's your move?",
+        prompt: "You called the turn probe; MP checks to you on the river. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'MP', action: 'Checks', potAfterBB: 38.5 },
         ],
@@ -952,7 +953,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 162.0,
         villainStackBB: 162.0,
         villainPosition: 'MP',
-        prompt: "MP checks to you. What's your move?",
+        prompt: "You cold 4-bet; MP called. After your flop c-bet, MP checks turn. What's your move?",
         priorActionsThisStreet: [
           { street: 'turn', actor: 'MP', action: 'Checks', potAfterBB: 80.0 },
         ],
@@ -1007,7 +1008,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 162.0,
         villainStackBB: 162.0,
         villainPosition: 'MP',
-        prompt: "MP bets 105.0bb. What's your move?",
+        prompt: "You bet turn; MP calls, then overbets river 105.0bb into 80.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'MP', action: 'Bets 105.0bb', potAfterBB: 185.0 },
         ],
@@ -1111,7 +1112,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 97.5,
         villainStackBB: 97.5,
         villainPosition: 'MP',
-        prompt: "First to act. What's your move?",
+        prompt: "You opened UTG; MP, BTN, and BB called. First to act multiway. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1174,7 +1175,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 94.0,
         villainStackBB: 94.0,
         villainPosition: 'MP',
-        prompt: "First to act. What's your move?",
+        prompt: "BTN and BB folded flop; heads-up vs MP. First to act on the turn. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1237,7 +1238,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 94.0,
         villainStackBB: 94.0,
         villainPosition: 'MP',
-        prompt: "MP raises to 32.0bb. What's your move?",
+        prompt: "You bet 13.0bb; MP raises to 32.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'turn', actor: 'UTG', action: 'Bets 13.0bb', potAfterBB: 30.5, isHero: true },
           { street: 'turn', actor: 'MP', action: 'Raises to 32.0bb', potAfterBB: 62.5 },
@@ -1293,7 +1294,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 62.0,
         villainStackBB: 62.0,
         villainPosition: 'MP',
-        prompt: "First to act. What's your move?",
+        prompt: "You called the turn raise. First to act on the river. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1394,7 +1395,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 52.5,
         villainStackBB: 23.5,
         villainPosition: 'BB',
-        prompt: "First to act. What's your move?",
+        prompt: "You opened SB; BB called. Seat 1 is 5bb. First to act on the flop. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1446,7 +1447,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 50.9,
         villainStackBB: 21.9,
         villainPosition: 'BB',
-        prompt: "First to act. What's your move?",
+        prompt: "BB called your flop c-bet. First to act on the turn. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1499,7 +1500,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 45.4,
         villainStackBB: 16.4,
         villainPosition: 'BB',
-        prompt: "First to act. What's your move?",
+        prompt: "BB called your turn bet. First to act on the river. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1603,7 +1604,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 29.5,
         villainStackBB: 29.5,
         villainPosition: 'MP',
-        prompt: "MP checks to you. What's your move?",
+        prompt: "You 3-bet CO vs MP; MP called. MP checks to you on the flop. What's your move?",
         priorActionsThisStreet: [
           { street: 'flop', actor: 'MP', action: 'Checks', potAfterBB: 12.5 },
         ],
@@ -1657,7 +1658,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 25.7,
         villainStackBB: 25.7,
         villainPosition: 'MP',
-        prompt: "MP checks to you. What's your move?",
+        prompt: "MP called your flop bet and checks turn. What's your move?",
         priorActionsThisStreet: [
           { street: 'turn', actor: 'MP', action: 'Checks', potAfterBB: 20.1 },
         ],
@@ -1712,7 +1713,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 18.2,
         villainStackBB: 18.2,
         villainPosition: 'MP',
-        prompt: "MP checks to you. What's your move?",
+        prompt: "MP called turn and checks river. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'MP', action: 'Checks', potAfterBB: 35.1 },
         ],
@@ -1807,7 +1808,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 97.5,
         villainStackBB: 97.5,
         villainPosition: 'BTN',
-        prompt: "First to act. What's your move?",
+        prompt: "You defended BB vs BTN open. First to act on the flop. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1869,7 +1870,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 97.5,
         villainStackBB: 97.5,
         villainPosition: 'BTN',
-        prompt: "BTN bets 3.5bb. What's your move?",
+        prompt: "You checked flop; BTN bets 3.5bb into 5.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'flop', actor: 'BB', action: 'Checks', potAfterBB: 5.0, isHero: true },
           { street: 'flop', actor: 'BTN', action: 'Bets 3.5bb', potAfterBB: 8.5 },
@@ -1924,7 +1925,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 86.0,
         villainStackBB: 86.0,
         villainPosition: 'BTN',
-        prompt: "First to act. What's your move?",
+        prompt: "BTN called your flop raise. First to act on the turn. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -1977,7 +1978,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 66.5,
         villainStackBB: 66.5,
         villainPosition: 'BTN',
-        prompt: "First to act. What's your move?",
+        prompt: "BTN called your turn bet. First to act on the river. What's your move?",
         priorActionsThisStreet: [],
         choices: [
           {
@@ -2030,7 +2031,7 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
         heroStackBB: 66.5,
         villainStackBB: 66.5,
         villainPosition: 'BTN',
-        prompt: "BTN bets 45.0bb. What's your move?",
+        prompt: "You checked river; BTN bets 45.0bb into 67.0bb. What's your move?",
         priorActionsThisStreet: [
           { street: 'river', actor: 'BB', action: 'Checks', potAfterBB: 67.0, isHero: true },
           { street: 'river', actor: 'BTN', action: 'Bets 45.0bb', potAfterBB: 112.0 },
@@ -2074,3 +2075,8 @@ export const POKER_PUZZLES: PokerPuzzle[] = [
     showdownSummary: "Hero traps and snaps off the bluff! Dario 'The Hunter' Rossi shows Q♠ J♦ (busted double gutshot turned into a river bluff). Hero’s flopped set of 6s scoops a giant 157.0bb pot in this heads-up duel!",
   },
 ];
+
+/** All curated spots: preflop range drills first, then multi-street postflop puzzles. */
+export const POKER_PUZZLES: PokerPuzzle[] = [...PREFLOP_PUZZLES, ...POSTFLOP_PUZZLES];
+
+export { PREFLOP_PUZZLES };

@@ -46,6 +46,7 @@ const TABLE_FORMAT_OPTIONS: { id: 'all' | TableFormat; label: string }[] = [
 
 const SETUP_THEMES: { id: 'all' | SetupTheme; label: string }[] = [
   { id: 'all', label: 'All Themes' },
+  { id: 'Preflop Ranges', label: 'Preflop Ranges' },
   { id: '3-Bet Pots', label: '3-Bet Pots' },
   { id: 'River Bluff Catch', label: 'River Bluff Catch' },
   { id: 'ICM & Tournament', label: 'ICM & Tournament' },
@@ -98,6 +99,11 @@ export const StatsAndPracticeView: React.FC<StatsAndPracticeViewProps> = ({
 
   // Compute stats using storage utility
   const stats = useMemo(() => computeUserStats(history), [history]);
+
+  const preflopPuzzles = useMemo(
+    () => puzzles.filter((p) => p.themes.includes('Preflop Ranges')),
+    [puzzles]
+  );
 
   // Compute best attempt map per puzzle for instant lookup
   const bestAttemptByPuzzleId = useMemo(() => {
@@ -192,6 +198,51 @@ export const StatsAndPracticeView: React.FC<StatsAndPracticeViewProps> = ({
       {/* ======================================================== */}
       {activeTab === 'practice' && (
         <div className="space-y-4">
+          {/* Preflop Hands Trainer — fold / open / 3-bet drills */}
+          {preflopPuzzles.length > 0 && (
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-cyan-500/15 border border-emerald-500/35 p-4 shadow-lg">
+              <div className="flex items-start gap-2.5">
+                <span className="p-2 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-400/30 shrink-0 mt-0.5">
+                  <Layers className="w-5 h-5" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <span className="text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">
+                    Hands Trainer
+                  </span>
+                  <h3 className="text-sm font-bold text-white mt-1">Preflop Fold & Raise Drills</h3>
+                  <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">
+                    Open, fold, defend, 3-bet, and squeeze — single-street decisions before the flop.
+                  </p>
+                  <div className="mt-3 flex flex-col sm:flex-row gap-2">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        onStartFilteredQueue(preflopPuzzles, 'Preflop Hands Trainer')
+                      }
+                      className="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 active:scale-98 font-bold text-xs text-slate-950 flex items-center justify-center gap-2 shadow-md transition-all"
+                    >
+                      <Play className="w-4 h-4 fill-slate-950" />
+                      <span>Start Preflop Trainer ({preflopPuzzles.length})</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedTheme('Preflop Ranges');
+                        setSelectedFormat('all');
+                        setSelectedDifficulty('all');
+                        setSearchQuery('');
+                      }}
+                      className="sm:w-auto px-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 hover:border-emerald-500/40 text-xs font-bold text-slate-200 flex items-center justify-center gap-1.5 transition-all"
+                    >
+                      <Filter className="w-3.5 h-3.5 text-emerald-400" />
+                      Filter list
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Smart "Train Weaknesses" Banner if leaks exist */}
           {stats.weaknesses.length > 0 && (
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-500/20 via-rose-500/20 to-amber-600/15 border border-amber-500/40 p-4 shadow-lg backdrop-blur-md">
