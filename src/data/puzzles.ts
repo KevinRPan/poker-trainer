@@ -560,7 +560,7 @@ const POSTFLOP_PUZZLES: PokerPuzzle[] = [
           { rank: 'T', suit: 'h' },
           { rank: '3', suit: 'c' },
           { rank: '2', suit: 'h' },
-          { rank: '6', suit: 'd' },
+          { rank: '4', suit: 'd' },
         ],
         potBB: 50.5,
         toCallBB: 0,
@@ -578,7 +578,8 @@ const POSTFLOP_PUZZLES: PokerPuzzle[] = [
             grade: 'best',
             evBB: 9.8,
             gtoFrequency: 85,
-            explanation: 'Checking is the optimal setup! Leading here with King-high allows CO to fold busted floats and only call with made hands. Checking gives CO room to value-bet one pair (AJ, KJ, QJ) or bluff, setting up your devastating nut-blocker check-raise shove!',
+            explanation:
+              'River 4♦ is a blank — your OESD missed and you have King-high only. Checking sets up a check-raise: CO can still stab with one-pair value (AJ, KJ, QJ) or thin bluffs, which is where your K♠/Q♦ blockers shine.',
           },
           {
             id: 'p2s3-c2',
@@ -589,7 +590,8 @@ const POSTFLOP_PUZZLES: PokerPuzzle[] = [
             grade: 'inaccuracy',
             evBB: 5.2,
             gtoFrequency: 15,
-            explanation: 'Triple-barreling yourself as a bluff can work, but it lacks the overwhelming fold equity and trap power of the river check-raise.',
+            explanation:
+              'Leading as a missed-draw bluff can work, but it lacks the trap EV of checking to induce a stab and then raising.',
           },
           {
             id: 'p2s3-c3',
@@ -600,10 +602,12 @@ const POSTFLOP_PUZZLES: PokerPuzzle[] = [
             grade: 'good',
             evBB: 8.5,
             gtoFrequency: 0,
-            explanation: 'Open shoving as a bluff puts maximum pressure on CO, but check-raising achieves even higher EV by capturing CO’s river bet before jamming over them.',
+            explanation:
+              'Open shoving King-high applies pressure, but check-raising captures CO’s river bet first and prints more EV.',
           },
         ],
-        transitionText: 'You check your King-high. CO senses weakness and value-bets 32.0bb into 50.5bb! Action is back on you.',
+        transitionText:
+          'You check King-high on the blank river. CO value-bets 32.0bb into 50.5bb. Action is back on you.',
       },
       {
         stepIndex: 4,
@@ -613,7 +617,7 @@ const POSTFLOP_PUZZLES: PokerPuzzle[] = [
           { rank: 'T', suit: 'h' },
           { rank: '3', suit: 'c' },
           { rank: '2', suit: 'h' },
-          { rank: '6', suit: 'd' },
+          { rank: '4', suit: 'd' },
         ],
         potBB: 50.5,
         toCallBB: 32.0,
@@ -635,7 +639,8 @@ const POSTFLOP_PUZZLES: PokerPuzzle[] = [
             grade: 'brilliant',
             evBB: 9.8,
             gtoFrequency: 70,
-            explanation: '!! Masterclass river check-raise bluff! Holding K♠ Q♦ double-blocks the nut straight (KQ), top two-pair (KJ, QJ), and uncapped monsters. CO cannot call top pair AJ/KJ against a river check-shove!',
+            explanation:
+              '!! Brilliant air check-raise. On J♠ T♥ 3♣ 2♥ 4♦ you have King-high only (no straight is possible). K♠ Q♦ still blocks CO’s best one-pair calling hands (KJ, QJ, and some AJ), so a shove folds out enough value that this bluff prints.',
           },
           {
             id: 'p2s4-c2',
@@ -645,7 +650,8 @@ const POSTFLOP_PUZZLES: PokerPuzzle[] = [
             grade: 'good',
             evBB: 0.0,
             gtoFrequency: 30,
-            explanation: 'Folding King-high is the conservative standard play when not pulling the trigger on advanced blocker-bluffs.',
+            explanation:
+              'Folding King-high is the safe line when you are not firing the advanced blocker bluff.',
           },
           {
             id: 'p2s4-c3',
@@ -656,12 +662,14 @@ const POSTFLOP_PUZZLES: PokerPuzzle[] = [
             grade: 'blunder',
             evBB: -32.0,
             gtoFrequency: 0,
-            explanation: 'Calling with unimproved King-high has 0% equity against CO’s value range. Pure chip incineration.',
+            explanation:
+              'Calling with unimproved King-high has essentially 0% equity vs CO’s value range after they stab this river.',
           },
         ],
       },
     ],
-    showdownSummary: "Hero pulls off an incredible check-raise all-in bluff with King-high! Alex 'The Shark' Mercer is visibly agonized and folds A♠ J♦ face up into the muck, relinquishing an 82.5bb pot to pure solver dominance.",
+    showdownSummary:
+      "Hero check-raises all-in as a pure bluff with King-high on J♠ T♥ 3♣ 2♥ 4♦. Alex 'The Shark' Mercer tanks and folds A♠ J♦ face up — K♠ Q♦ blocked his strongest easy call.",
   },
 
   // --------------------------------------------------------------------------
