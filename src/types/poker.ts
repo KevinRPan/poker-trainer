@@ -15,7 +15,8 @@ export type SetupTheme =
   | 'C-Bet & Barrel'
   | 'Check-Raise Spots'
   | 'Heads-Up Battles'
-  | 'Overbet Pressure';
+  | 'Overbet Pressure'
+  | 'Preflop Ranges';
 
 export type Street = 'preflop' | 'flop' | 'turn' | 'river';
 
@@ -71,7 +72,7 @@ export interface DecisionStep {
   heroStackBB: number;
   villainStackBB: number;
   villainPosition: PositionName;
-  prompt: string;         // e.g. "CO bets 4.5bb into 13.5bb on the turn. What is your move?"
+  prompt: string;         // Prior-action context + ask; do not narrate board/hand strength
   priorActionsThisStreet: ActionLogItem[];
   choices: ActionChoice[];
   transitionText?: string; // What happens after Hero acts to advance to the next street

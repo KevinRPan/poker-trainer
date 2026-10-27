@@ -140,6 +140,24 @@ export function App() {
     setShowTableInReview(false);
   };
 
+  /** Redo only the current decision; keep earlier streets intact. */
+  const handleRetryMove = () => {
+    const stepIndex = currentStep.stepIndex;
+    setSelectedChoice(null);
+    setStepRecords((prev) => prev.filter((r) => r.stepIndex !== stepIndex));
+    setIsHandComplete(false);
+    setShowTableInReview(false);
+  };
+
+  /** Jump back to a street from review and replay from that decision onward. */
+  const handleRetryFromStep = (stepIndex: number) => {
+    setStepIdx(stepIndex);
+    setSelectedChoice(null);
+    setStepRecords((prev) => prev.filter((r) => r.stepIndex < stepIndex));
+    setIsHandComplete(false);
+    setShowTableInReview(false);
+  };
+
   const handleNextPuzzle = () => {
     const nextIdx = (currentPuzzleIdx + 1) % puzzleQueue.length;
     setCurrentPuzzleIdx(nextIdx);
@@ -283,10 +301,18 @@ export function App() {
                             ELO {currentPuzzle.rating} • {currentPuzzle.difficulty}
                           </span>
                         </div>
-                        <h1 className="text-sm font-bold text-white mt-1">
-                          {currentPuzzle.title}
-                        </h1>
-                        <p className="text-xs text-slate-400">{currentPuzzle.subtitle}</p>
+                        {isHandComplete ? (
+                          <>
+                            <h1 className="text-sm font-bold text-white mt-1">
+                              {currentPuzzle.title}
+                            </h1>
+                            <p className="text-xs text-slate-400">{currentPuzzle.subtitle}</p>
+                          </>
+                        ) : (
+                          <p className="text-sm font-semibold text-slate-200 mt-1">
+                            {currentPuzzle.blindsText} · {currentPuzzle.heroPosition}
+                          </p>
+                        )}
                       </div>
 
                       <button
@@ -503,11 +529,12 @@ export function App() {
 
                       <div className="flex items-center gap-2 pt-1">
                         <button
-                          onClick={handleRetryHand}
+                          onClick={handleRetryMove}
                           className="px-3 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold flex items-center gap-1.5 transition"
+                          title="Try this decision again"
                         >
                           <RotateCcw className="w-3.5 h-3.5" />
-                          Retry
+                          Retry Move
                         </button>
                         <button
                           onClick={handleAdvanceStreetOrFinish}
@@ -536,12 +563,21 @@ export function App() {
                       </div>
                     </div>
                   ) : (
-                    <button
-                      onClick={() => setShowTableInReview(false)}
-                      className="w-full py-3 rounded-xl bg-emerald-500 text-slate-950 font-extrabold text-sm"
-                    >
-                      Back to Full Hand Review
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => setShowTableInReview(false)}
+                        className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-sm transition"
+                      >
+                        Back to Review
+                      </button>
+                      <button
+                        onClick={handleNextPuzzle}
+                        className="flex-[1.4] py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm flex items-center justify-center gap-1.5 shadow-lg transition"
+                      >
+                        Next Hand
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
                   )}
                 </div>
 
@@ -572,10 +608,18 @@ export function App() {
                                 ELO {currentPuzzle.rating} • {currentPuzzle.difficulty}
                               </span>
                             </div>
-                            <h1 className="text-sm font-bold text-white mt-1">
-                              {currentPuzzle.title}
-                            </h1>
-                            <p className="text-xs text-slate-400">{currentPuzzle.subtitle}</p>
+                            {isHandComplete ? (
+                              <>
+                                <h1 className="text-sm font-bold text-white mt-1">
+                                  {currentPuzzle.title}
+                                </h1>
+                                <p className="text-xs text-slate-400">{currentPuzzle.subtitle}</p>
+                              </>
+                            ) : (
+                              <p className="text-sm font-semibold text-slate-200 mt-1">
+                                {currentPuzzle.blindsText} · {currentPuzzle.heroPosition}
+                              </p>
+                            )}
                           </div>
 
                           <button
@@ -787,11 +831,12 @@ export function App() {
 
                           <div className="flex items-center gap-2 pt-1">
                             <button
-                              onClick={handleRetryHand}
+                              onClick={handleRetryMove}
                               className="px-3 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 text-xs font-bold flex items-center gap-1.5 transition"
+                              title="Try this decision again"
                             >
                               <RotateCcw className="w-3.5 h-3.5" />
-                              Retry
+                              Retry Move
                             </button>
                             <button
                               onClick={handleAdvanceStreetOrFinish}
@@ -820,12 +865,21 @@ export function App() {
                           </div>
                         </div>
                       ) : (
-                        <button
-                          onClick={() => setShowTableInReview(false)}
-                          className="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm shadow-lg transition"
-                        >
-                          Back to Full Hand Review
-                        </button>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => setShowTableInReview(false)}
+                            className="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-bold text-sm transition"
+                          >
+                            Back to Review
+                          </button>
+                          <button
+                            onClick={handleNextPuzzle}
+                            className="flex-[1.4] py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm flex items-center justify-center gap-1.5 shadow-lg transition"
+                          >
+                            Next Hand
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        </div>
                       )}
                     </div>
                   </div>
@@ -841,6 +895,7 @@ export function App() {
                     stepRecords={stepRecords}
                     onRetry={handleRetryHand}
                     onNextPuzzle={handleNextPuzzle}
+                    onRetryFromStep={handleRetryFromStep}
                     onSelectStepForReplay={(idx) => {
                       setStepIdx(idx);
                       setShowTableInReview(true);
@@ -875,6 +930,7 @@ export function App() {
                       stepRecords={stepRecords}
                       onRetry={handleRetryHand}
                       onNextPuzzle={handleNextPuzzle}
+                      onRetryFromStep={handleRetryFromStep}
                       onSelectStepForReplay={(idx) => {
                         setStepIdx(idx);
                         setShowTableInReview(true);
